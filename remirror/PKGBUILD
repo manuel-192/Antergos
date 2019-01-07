@@ -1,0 +1,12 @@
+# Maintainer: manuel (see forum.antergos.com)
+
+_load_original_PKGBUILD()
+{
+    local pkgbuild=PKGBUILD.remirror.local-tmp
+    if [ ! -r $pkgbuild ] ; then
+        wget -q -O $pkgbuild https://github.com/manuel-192/remirror/raw/master/PKGBUILD
+    fi
+    source $pkgbuild
+}
+_load_original_PKGBUILD
+unset -f _load_original_PKGBUILD
