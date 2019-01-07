@@ -2,11 +2,14 @@
 
 _load_original_PKGBUILD()
 {
-    local pkgbuild=PKGBUILD.remirror.local-tmp
-    if [ ! -r $pkgbuild ] ; then
-        wget -q -O $pkgbuild https://github.com/manuel-192/remirror/raw/master/PKGBUILD
+    local _package=remirror
+    local _pkgbuild=PKGBUILD.$_package.local-tmp
+    local _repository=https://github.com/manuel-192/$_package
+
+    if [ ! -r $_pkgbuild ] ; then
+        wget -q -O $_pkgbuild $_repository/raw/master/PKGBUILD
     fi
-    source $pkgbuild
+    source $_pkgbuild
 }
 _load_original_PKGBUILD
 unset -f _load_original_PKGBUILD
