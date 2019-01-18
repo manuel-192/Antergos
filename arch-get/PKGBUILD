@@ -7,9 +7,9 @@ pkgrel=1
 arch=('any')
 license=('GPL')
 depends=('bash' 'wget' 'yay')
-url=https://github.com/manuel-192/Antergos/raw/master/$pkgname/${pkgname}-$pkgver
+url=https://github.com/manuel-192/Antergos/raw/master
 source=(
-  "$url/raw/master/${pkgname}-$pkgver"
+  "$url/$pkgname/${pkgname}-$pkgver"
 )
 sha512sums=(
   '42a96471c59ca5af48c867ea8c7940375fa7e920b465c13f903e9c3acdf52d6b4100bb117176aecaefdcb4261f720a5702f5d98b2f5ef4734eda70b8f3847865'
