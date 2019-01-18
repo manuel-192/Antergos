@@ -7,7 +7,7 @@ pkgrel=1
 arch=('any')
 license=('GPL')
 depends=('bash' 'wget' 'yay')
-url=https://github.com/manuel-192/Antergos/raw/master/$pkgname/PKGBUILD
+url=https://github.com/manuel-192/Antergos/raw/master/$pkgname/${pkgname}-$pkgver
 source=(
   "$url/raw/master/${pkgname}-$pkgver"
 )
