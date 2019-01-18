@@ -1,0 +1,73 @@
+#!/bin/bash
+#
+# Install an Arch package instead of corresponding Antergos package.
+
+echo2() { echo "$@" >&2 ; }
+error() { echo2 "Error: " "$@" ; }
+
+InstallArchPackage()
+{
+    local pkg="$1"
+
+    local arch_repo=$(yay -Pc | awk '{print $1 " " $2}' | grep -v " AUR$" | grep -v " antergos$" | grep "$pkg " | awk '{print $2}')
+    if [ "$arch_repo" = "" ] ; then
+        error "package '$pkg' not found."
+        return 1
+    fi
+    local arch_server="$(grep "^Server = http" /etc/pacman.d/mirrorlist | head -n 1 | awk '{print $3}' | sed -e 's|$repo|'$arch_repo'|' -e 's|$arch|x86_64|')"
+    local pkginfo=pkg-$$.html
+    local pkgurl
+
+    wget -q --timeout=10 -O "$pkginfo" "$arch_server"
+    if [ $? -eq 0 ] ; then
+        pkgurl="$arch_server/$(grep "$pkg-[0-9]" $pkginfo | grep -v '.xz.sig' | sed -e 's|^.*">||' -e 's|<.*$||')"
+        case "$pkgurl" in
+            https://*.pkg.tar.xz) sudo pacman -U "$pkgurl" ;;
+            *) error "package URL '$pkgurl' is invalid." ; exit 1 ;;
+        esac
+    fi
+    rm -f "$pkginfo"
+}
+
+RequiredAppsCheck()
+{
+    local xx
+    for xx in yay
+    do
+        if [ ! -x /usr/bin/$xx ] ; then
+            error "required but missing package '$xx'."
+            exit 1
+        fi
+    done
+}
+
+Usage()
+{
+    echo2 "Usage: $0 package(s)"
+}
+
+StartHere()
+{
+    if [ "$1" = "" ] ; then
+        error "you must give at least one package name."
+        Usage
+        return 1
+    fi
+    RequiredAppsCheck
+
+    local workdir=/tmp/arch-get-$$.dir
+    local pkg
+
+    mkdir -p $workdir
+    cd $workdir
+
+    for pkg in "$@"
+    do
+        InstallArchPackage "$pkg"
+    done
+
+    cd $OLDPWD
+    rm -rf $workdir
+}
+
+StartHere "$@"
