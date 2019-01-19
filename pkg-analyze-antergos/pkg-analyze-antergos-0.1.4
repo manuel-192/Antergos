@@ -1,0 +1,141 @@
+#!/bin/bash
+#
+# Show possibly outdated Antergos packages.
+#
+
+OPT_NONAME="-noname"
+OPT_AUR="-aur"
+OPT_INST="-installed"
+
+Usage()
+{
+    local prog="$(basename $0)"
+
+    echo "$prog:"
+    echo "       Show possibly outdated Antergos packages by comparing"
+    echo "       them to Arch and optionally AUR repos."
+    echo ""
+    echo "       It also tells which version of each displayed package"
+    echo "       is currently installed (e.g. [1.23.1-1]),"
+    echo "       and which of the packages is newer (with a + sign)."
+    echo ""
+    echo "Usage: $prog [-aur] [package(s)]"
+    echo "where"
+    echo "   $OPT_AUR         Compare Antergos packages with both Arch"
+    echo "                and AUR repos."
+    echo "   $OPT_NONAME      Don't show Antergos package name when"
+    echo "                there is nothing to report."
+    echo "   $OPT_INST   Show only packages currently installed."
+    echo "   package(s)   Package name(s), separated with spaces."
+    echo ""
+    echo "If no packages are given, then all Antergos specific packages"
+    echo "are compared (and it takes some time)."
+    echo "By default, package comparison is made only between"
+    echo "Antergos and Arch repos."
+}
+
+_greatest_version() { printf '%s\n' "$@" | /usr/bin/sort -Vr | /usr/bin/head -n 1 ; }
+
+Main()
+{
+    local yay=/usr/bin/yay
+    local grep=/usr/bin/grep
+    local awk=/usr/bin/awk
+    local tr=/usr/bin/tr
+    local column=/usr/bin/column
+
+    local aur=0
+    local showallnames=1
+    local showinstalled=0
+
+    local pkgs_antergos
+    local pkg
+    local arr
+    local v0 v1
+    local r0 r1 r
+    local installed_version
+    local g0 g1
+    local hi="+" lo=" "   # these must have same lengths
+    local arg
+    local slow=0
+
+    if [ ! -x $yay ] ; then
+        echo "Required package 'yay' is not installed."
+        return 1
+    fi
+
+    for arg in "$@"
+    do
+        case "$arg" in
+            $OPT_AUR)     aur=1 ;;
+            $OPT_NONAME) showallnames=0 ;;
+            $OPT_INST)   showinstalled=1 ;;
+            -*)          Usage ; return 1 ;;
+            *)           pkgs_antergos+=" $arg" ;;
+        esac
+    done
+
+    if [ "$pkgs_antergos" = "" ] ; then
+        pkgs_antergos="$($yay -Pc | $grep antergos | $awk '{print $1}')"
+        slow=1
+    fi
+
+    if [ $aur -eq 0 ] ; then
+        arg="Arch"
+    else
+        arg="Arch and AUR"
+    fi
+    if [ $slow -eq 1 ] ; then
+        echo "Comparing Antergos packages to $arg, please wait ..."
+    fi
+
+    for pkg in $pkgs_antergos
+    do
+        if [ $showinstalled -eq 1 ] ; then
+            if [ "$(yay -Q "$pkg" 2>/dev/null)" = "" ] ; then
+                continue
+            fi
+        fi
+
+        readarray -t arr <<< "$(echo q | $yay $pkg | $grep $pkg | $awk '{print $2 " " $3}' | $tr '/' ' ' | $grep " $pkg ")"
+
+        case "${#arr[@]}" in
+            2)
+                v0=$(echo "${arr[0]}" | $awk '{print $3}')
+                v1=$(echo "${arr[1]}" | $awk '{print $3}')
+                if [ "$v0" != "$v1" ] ; then
+                    r0=$(echo "${arr[0]}" | $awk '{print $1}')
+                    r1=$(echo "${arr[1]}" | $awk '{print $1}')
+                    case "$(_greatest_version "$v0" "$v1")" in
+                        "$v0") r="$r0" ; g0="$hi" ; g1="$lo" ;;
+                        "$v1") r="$r1" ; g0="$lo" ; g1="$hi" ;;
+                        *)     echo "Internal error!" ; return 1 ;;
+                    esac
+                    if [ "$r" != "antergos" ] ; then
+                        if [ "$r" != "aur" ] || [ $aur -eq 1 ] ; then
+                            installed_version="$($yay -Q "$pkg" 2>/dev/null | awk '{print $2}')"
+                            printf "%-30s" "$pkg: "
+                            printf "[%s]:\n\t%s %-10s %s\n\t%s %-10s %s\n" \
+                                   "$installed_version" \
+                                   "$g0" "$r0" "$v0" \
+                                   "$g1" "$r1" "$v1"
+                        else
+                            if [ $showallnames -eq 1 ] ; then
+                                echo "$pkg:"
+                            fi
+                        fi
+                    fi
+                fi
+                ;;
+            1)
+                if [ $showallnames -eq 1 ] ; then
+                    echo "$pkg:"
+                fi
+                ;;
+            0)  echo "$pkg: no match." ; return 1 ;;
+            *)  echo "$pkg: too many matches." ; return 1 ;;
+        esac
+    done
+}
+
+Main "$@"
