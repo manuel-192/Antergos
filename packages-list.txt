@@ -7,6 +7,7 @@ UserManager              1.6-1
 akm                      0.1.13-1
 antergos-customcfg       0.1.57-1
 arch-cl                  0.1.6-1
+arch-get                 0.1.2-1
 assoc                    0.1.47-1
 eat                      0.1.7-1
 maur                     0.1.44-1
