@@ -1,0 +1,21 @@
+# Maintainer: manuel (see forum.antergos.com)
+
+pkgname=pkg-analyze-antergos
+pkgdesc="Find outdated Antergos packages."
+pkgver=0.1.4
+pkgrel=1
+arch=('any')
+license=('GPL')
+depends=('bash' 'wget' 'yay')
+url=https://github.com/manuel-192/Antergos/raw/master
+source=(
+  "$url/$pkgname/${pkgname}-$pkgver"
+)
+sha512sums=(
+  '58f53df3df7a02450f1be41ac1ac2f6bdd8848d45bcf0a197cece38188fc1df39b18935703995af32e5938c65f267a405aff6e480b5ec37cde8d1ba75d978f68'
+)
+
+package() {
+  cd $srcdir
+  install -Dm755 ${pkgname}-$pkgver    $pkgdir/usr/bin/$pkgname
+}
