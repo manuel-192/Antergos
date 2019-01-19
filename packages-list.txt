@@ -11,6 +11,7 @@ arch-get                 0.1.2-1
 assoc                    0.1.47-1
 eat                      0.1.7-1
 maur                     0.1.44-1
+pkg-analyze-antergos     0.1.4-1
 remirror                 0.1.45-1
 syu                      0.1.7-1
 wcd                      6.0.2-1
