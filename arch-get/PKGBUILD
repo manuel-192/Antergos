@@ -2,7 +2,7 @@
 
 pkgname=arch-get
 pkgdesc="Install Arch package instead of corresponding Antergos package."
-pkgver=0.1.1
+pkgver=0.1.2
 pkgrel=1
 arch=('any')
 license=('GPL')
@@ -12,7 +12,7 @@ source=(
   "$url/$pkgname/${pkgname}-$pkgver"
 )
 sha512sums=(
-  '42a96471c59ca5af48c867ea8c7940375fa7e920b465c13f903e9c3acdf52d6b4100bb117176aecaefdcb4261f720a5702f5d98b2f5ef4734eda70b8f3847865'
+  '7da2a9623f8a402474b5771643b35a4bdf36bc826a3920b2a05d09aa155cb6a9542467a49d358f3edaabdc462382c629a6e6116f1b582fe2f33a0a8394825684'
 )
 
 package() {
