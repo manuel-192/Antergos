@@ -1,1 +1,1 @@
-# Antergos related packages
+# Mostly Antergos related packages
