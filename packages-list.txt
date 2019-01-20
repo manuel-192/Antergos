@@ -5,19 +5,7 @@
 # name                   version (can be empty if unknown)
 # ====                   =================================
 #
-UserManager              1.6-1
-akm                      0.1.13-1
-antergos-customcfg       0.1.57-1
-arch-cl                  0.1.6-1
-arch-get                 0.1.2-1
-assoc                    0.1.47-1
-eat                      0.1.7-1
 maur                     0.1.44-1
-pkg-analyze-antergos     0.1.4-1
-remirror                 0.1.45-1
-syu                      0.1.7-1
-wcd                      6.0.2-1
-yaygg                    0.1.19-1
 dropbox-latest
 firefox-latest
 libreoffice-latest
