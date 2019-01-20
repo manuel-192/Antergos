@@ -50,6 +50,10 @@ More: https://github.com/manuel-192/syu
 Provides a (Norton CD like) graphical directory changer.<br>
 More: https://github.com/manuel-192/wcd
 
+### xed
+Latest Arch version of the xed text editor.
+More: https://www.archlinux.org/packages/community/x86_64/xed
+
 ### yad
 The latest AUR version of the yad package.<br>
 More: https://aur.archlinux.org/packages/yad
