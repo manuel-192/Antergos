@@ -27,7 +27,7 @@ Show Antergos packge versions compared to Arch and AUR counterparts.
 
 ### pkgget
 Install any package from this "repo".<br>
-Warning: be aware that packages here have no signatures, so use this at your own risk. They are, however, checked with sha512sum after download.
+<b>Warning</b>: be aware that packages here have no signatures, so use this at your own risk. They are, however, checked with sha512sum after download.
 
 ### remirror
 Rank mirrors on Antergos and/or Arch.
