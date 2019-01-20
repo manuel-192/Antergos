@@ -20,7 +20,7 @@ Command line program to provide associations between file names and programs to 
 For example, and .odt file can be associated to program libreoffice.
 
 ### eat
-An easy to use pastebin helper. Eat files or command outputs and send them to pastebin.
+An easy to use pastebin helper. "Eat" files or command outputs and send them to pastebin.
 
 ### pkg-analyze-antergos
 Show Antergos packge versions compared to Arch and AUR counterparts.
