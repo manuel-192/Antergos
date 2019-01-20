@@ -1,0 +1,21 @@
+# Maintainer: manuel (see forum.antergos.com)
+
+pkgname=pkgget
+pkgdesc="Install precompiled packages from AUR and elsewhere."
+pkgver=0.1.2
+pkgrel=1
+arch=('any')
+license=('GPL')
+depends=('bash' 'wget')
+url=https://github.com/manuel-192/Antergos/raw/master
+source=(
+  "$url/$pkgname/${pkgname}-$pkgver"
+)
+sha512sums=(
+  '93a03ebfa6f7287b4514baca6d3ad7a3024ee234bf2372c8cea56af5312496b77cf1bb194770703cccc54592cd1accb55f5fe1cc25c9b918d06c1943e9accc94'
+)
+
+package() {
+  cd $srcdir
+  install -Dm755 ${pkgname}-$pkgver    $pkgdir/usr/bin/$pkgname
+}
