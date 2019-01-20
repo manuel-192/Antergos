@@ -18,7 +18,8 @@ Shows the changelog of an Arch package.<br>
 More: https://github.com/manuel-192/arch-cl
 
 ### arch-get
-Install an Arch version of a package (instead of distro's own).
+Install an Arch version of a package (instead of distro's own).<br>
+More: https://github.com/manuel-192/Antergos/tree/master/arch-get
 
 ### assoc
 Command line program to provide associations between file names and programs to open then, based on file name extensions.
@@ -30,11 +31,13 @@ An easy to use pastebin helper. "Eat" file contents or command outputs and send 
 More: https://github.com/manuel-192/eat
 
 ### pkg-analyze-antergos
-Show Antergos packge versions compared to Arch and AUR counterparts.
+Show Antergos packge versions compared to Arch and AUR counterparts.<br>
+More: https://github.com/manuel-192/Antergos/tree/master/pkg-analyze-antergos
 
 ### pkgget
 Install any package from this "repo" (you are looking at it right now!).<br>
-<b>Warning</b>: be aware that packages here have no signatures, so use this at your own risk. However, pkgget checks packages with sha512sum after download.
+<b>Warning</b>: be aware that packages here have no signatures, so use this at your own risk. However, pkgget checks packages with sha512sum after download.<br>
+More: https://github.com/manuel-192/Antergos/tree/master/pkgget
 
 ### remirror
 Rank mirrors on Antergos and/or Arch.<br>
