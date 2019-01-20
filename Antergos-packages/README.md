@@ -1,7 +1,7 @@
 # Precompiled AUR packages for e.g. Antergos.
 
 ### UserManager
-Simple user manager, mainly for Xfce users.
+Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.
 
 ### akm
 Simple Antergos kernel manager.
