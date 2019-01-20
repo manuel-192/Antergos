@@ -1,4 +1,5 @@
 # Precompiled AUR packages for e.g. Antergos.
+See also: https://github.com/manuel-192?tab=repositories
 
 ### UserManager
 Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.
