@@ -1,4 +1,4 @@
-# Precompiled AUR packages for e.g. Antergos.
+# Collection of precompiled AUR and other packages.
 See also: https://github.com/manuel-192?tab=repositories
 
 ### UserManager
