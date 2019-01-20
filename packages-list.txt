@@ -1,3 +1,5 @@
+# NOTE: this list is no more supported!
+#
 # Currently supported packages:
 #
 # name                   version (can be empty if unknown)
