@@ -26,7 +26,7 @@ An easy to use pastebin helper. "Eat" file contents or command outputs and send 
 Show Antergos packge versions compared to Arch and AUR counterparts.
 
 ### pkgget
-Install any package from this "repo".<br>
+Install any package from this "repo" (you are looking at it right now!).<br>
 <b>Warning</b>: be aware that packages here have no signatures, so use this at your own risk. They are, however, checked with sha512sum after download.
 
 ### remirror
