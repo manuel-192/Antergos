@@ -3,6 +3,8 @@
 <br><br>
 NOTE: Some of these packages are from the AUR (currently: xed, yad and yay). They are here for people who wish to easily download the latest packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
 
+The easiest way to install these packages is using the package/program <b>pkgget</b>. Download it first, and then you may install others at will.
+
 ### UserManager
 Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.<br>
 More: https://github.com/manuel-192/UserManager
