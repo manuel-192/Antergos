@@ -1,4 +1,4 @@
-# Collection of precompiled AUR and other packages.
+# Collection of precompiled packages (some built from the AUR).
 The easiest way to install these packages is using the package/program <b>pkgget</b>. Download it first, and then you may install others at will.
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
