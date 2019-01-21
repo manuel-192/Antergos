@@ -3,7 +3,7 @@ The easiest way to install these packages is using the package/program <b>pkgget
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
 
-NOTE: Some of these packages are from the AUR or Arch repos (currently: xed, yad and yay). They are here for people who wish to easily download the latest packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
+NOTE: Some of these packages are built from the AUR or Arch repos (currently: xed, yad and yay). They are here for people who wish to easily download the latest packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
 
 ### UserManager
 Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.<br>
