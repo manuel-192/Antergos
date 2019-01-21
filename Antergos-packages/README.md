@@ -52,7 +52,7 @@ A very simple pacman wrapper.<br>
 More: https://github.com/manuel-192/syu
 
 ### wcd
-Provides a (Norton CD like) graphical directory changer.<br>
+Provides a (Norton CD like) graphical directory changer (like a <b>cd</b> with a GUI).<br>
 More: https://github.com/manuel-192/wcd
 
 ### xed
