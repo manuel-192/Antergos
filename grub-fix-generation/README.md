@@ -16,4 +16,4 @@ su
 grub-fix-generation
 grub-mkconfig -o /boot/grub/grub.cfg
 </pre>
-Check that the initrd lines are valid now.
+Check that the initrd lines in /boot/grub/grub.cfg are valid now.
