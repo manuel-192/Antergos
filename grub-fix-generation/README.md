@@ -10,10 +10,12 @@ When this problem gets fixed upstream, you should reinstall packages 'grub' and 
 and uninstall this script.
 
 ## Usage
-Run the script and re-generate grub.cfg:<br>
+Run the script (required only once!):
 <pre>
-su
-grub-fix-generation
-grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-fix-generation
+</pre>
+and re-generate grub.cfg:
+<pre>
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 </pre>
 Check that the initrd lines in /boot/grub/grub.cfg are valid now.
