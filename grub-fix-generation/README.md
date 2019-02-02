@@ -1,7 +1,7 @@
 # grub-fix-generation
 
-This small script fixes the invalid generation of the initrd line in file /boot/grub/grub.cfg.
-The problem concerns programs in packages grub and os-prober.
+This small script fixes the invalid generation of the <i>initrd</i> line in file <b>/boot/grub/grub.cfg</b>.
+The problem concerns programs in packages <b>grub</b> and <b>os-prober</b>.
 They generate incorrect initrd line, lacking one of the two required parameters.
 
 When this problem gets fixed upstream, you should reinstall packages 'grub' and 'os-prober'
