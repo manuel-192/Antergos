@@ -2,7 +2,7 @@
 
 pkgname=pkgget
 pkgdesc="Install prebuilt packages (manuel-192 and AUR) from manuel-192's github repo."
-pkgver=0.1.2
+pkgver=0.1.8
 pkgrel=1
 arch=('any')
 license=('GPL')
@@ -12,7 +12,7 @@ source=(
   "$url/$pkgname/${pkgname}-$pkgver"
 )
 sha512sums=(
-  '93a03ebfa6f7287b4514baca6d3ad7a3024ee234bf2372c8cea56af5312496b77cf1bb194770703cccc54592cd1accb55f5fe1cc25c9b918d06c1943e9accc94'
+  '643866886e5004adf021977a4198b48b92d59606b137f21397876ef944579da180f46cc5e5b58e19086a1f0de7cf369ca91fc1b45ad1c6ba607b604f274f8743'
 )
 
 package() {
