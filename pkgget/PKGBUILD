@@ -1,7 +1,7 @@
 # Maintainer: manuel (see forum.antergos.com)
 
 pkgname=pkgget
-pkgdesc="Install precompiled packages from AUR and elsewhere."
+pkgdesc="Install precompiled packages (manuel-192 and AUR) from manuel-192's github repo."
 pkgver=0.1.2
 pkgrel=1
 arch=('any')
