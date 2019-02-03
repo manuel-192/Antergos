@@ -34,6 +34,10 @@ More: https://github.com/manuel-192/assoc
 An easy to use pastebin helper. "Eat" file contents or command outputs and send them to pastebin.<br>
 More: https://github.com/manuel-192/eat
 
+### grub-fix-generation
+Fix for <b>grub-mkconfig</b> which currently generates incorrect grub boot menu entries for Arch based operating systems into /boot/grub/grub.cfg. This script fixes the generator.
+More: https://github.com/manuel-192/Antergos/tree/master/grub-fix-generation
+
 ### pkg-analyze-antergos
 Show Antergos packge versions compared to Arch and AUR counterparts.<br>
 More: https://github.com/manuel-192/Antergos/tree/master/pkg-analyze-antergos
