@@ -1,0 +1,129 @@
+#!/bin/bash
+#
+# Install given prebuilt package(s) from manuel-192's github repo.
+
+# Output a random number.
+_random() { shuf -i 10000-99999 -n 1 ; }
+
+Usage()
+{
+    local repo="$1"
+    local prog=$(basename $0)
+
+    echo "$prog: Install package(s) from $repo."
+    echo ""
+    echo "Usage: $prog [-h|--help] [--copy=X] [package(s)]"
+    echo "  --copy=X    Copy package(s) to directory X but don't install."
+    echo "  -h"
+    echo "  --help      This help."
+    echo "If only package(s) are given, then install them."
+    echo "If nothing is given, then list available packages."
+    echo ""
+    echo "Examples:"
+    echo "  $prog"
+    echo "  $prog yad"
+    echo "  $prog --copy=/localpkgs yay remirror"
+}
+
+ListAvailable()
+{
+    local repo="$1"
+    local info="/tmp/pkgs-$$-$(_random).html"
+
+    wget -q --timeout=10 -O $info $repo
+
+    grep '\.sha512' $info | sed -e 's|^.*title="||' -e 's|\.sha512".*$||'
+    rm -f $info
+}
+
+InstallPkg()
+{
+    local pkgname="$1"
+    local repo="$2"
+    local op="$3"
+    local pkg="$(ListAvailable "$repo" | grep -P "^${pkgname}-[0-9][0-9\.\:]*-[0-9][0-9]*-[a-z][a-z0-9\_]*\.pkg\.tar[\.xgz]*$")"
+
+    if [ "$pkg" = "" ] ; then
+        echo "Error: no match for '$pkgname'!"
+        return 1
+    fi
+
+    wget -q --timeout=20 "$repo/$pkg" "$repo/$pkg".sha512
+
+    if [ $? -eq 0 ] ; then
+        sha512sum -c "$pkg".sha512 >/dev/null
+        if [ $? -eq 0 ] ; then
+            printf "%s\n%s\n" "$pkg" "$pkg".sha512
+            case "$op" in
+                install)
+                    sudo /usr/bin/pacman -U "$pkg"
+                    ;;
+                *)
+                    if [ "$op" != "" ] && [ -d "$op" ] ; then
+                        mv -f "$pkg" "$pkg.sha512" "$op"
+                    else
+                        echo "Invalid target directory '$op'."
+                    fi
+                    ;;
+            esac
+        fi
+    fi
+}
+
+Main()
+{
+    if [ 1 -eq 1 ] ; then
+        local repo=https://github.com/manuel-192/Antergos/raw/master/Antergos-packages
+    else
+        local config="/etc/pkgget.conf"
+        if [ ! -e "$config" ] ; then
+            echo "Writing config file $config ..."
+            local tmp=/tmp/pkgget-$$-$(_random).tmp
+            echo 'local repo=https://github.com/manuel-192/Antergos/raw/master/Antergos-packages' > $tmp
+            sudo cp $tmp "$config"
+            rm -f $tmp
+        fi
+        if [ ! -r "$config" ] ; then
+	    echo "Error: getting config failed."
+	    return 1
+        fi
+        source "$config"
+    fi
+
+    local arg
+    local pkgs pkg
+    local op=install  # install or <dirname>
+
+    for arg in "$@"
+    do
+        case "$arg" in
+            --help | -h)
+                Usage $repo ; return ;;
+            --copy=*)
+                op="${arg:7}" ;;
+            -*)
+                echo "Unknown option '$arg'" ; Usage $repo ; return 1 ;;
+            *)
+                pkgs+="$arg " ;;
+        esac
+    done
+    if [ "$pkgs" != "" ] ; then
+        local workdir=/tmp/pkgget-$$-$(_random).dir
+        mkdir -p $workdir
+        cd $workdir
+
+        for pkg in $pkgs
+        do
+            InstallPkg "$pkg" "$repo" "$op"
+        done
+
+        cd $OLDPWD
+        rm -rf $workdir
+    else
+        Usage "$repo"
+        printf "\nAvailable packages at $repo:\n\n" >&2
+        ListAvailable $repo
+    fi
+}
+
+Main "$@"
