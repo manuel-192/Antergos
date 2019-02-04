@@ -39,7 +39,7 @@ Fix for <b>grub-mkconfig</b> which currently generates incorrect grub boot menu 
 More: https://github.com/manuel-192/Antergos/tree/master/grub-fix-generation
 
 ### pkg-analyze-antergos
-Show Antergos packge versions compared to Arch and AUR counterparts.<br>
+Show Antergos package versions compared to Arch and AUR counterparts.<br>
 More: https://github.com/manuel-192/Antergos/tree/master/pkg-analyze-antergos
 
 ### pkgget
