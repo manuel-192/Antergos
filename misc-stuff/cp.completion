@@ -46,7 +46,7 @@ _my_cp_completion()
             ;;
     esac
 
-    local opts=""
+    local opts
     opts+=" -a --archive --attributes-only -b --copy-contents -d"
     opts+=" -f --force -i --interactive -H -l --link -L --dereference"
     opts+=" -n --no-clobber -P --no-dereference -p --parents"
