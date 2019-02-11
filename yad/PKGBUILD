@@ -1,0 +1,60 @@
+# Maintainer: Aaron Fischer <mail@aaron-fischer.net>
+# Contributor: Steven Allen <steven@stebalien.com>
+# Contributor: trile7 at gmail dot com
+# Contributor: Ernia <monghitri@aruba.it>
+# manuel 2019-01-25:
+# - changed $url
+# - added sha512sums
+# - added _version_check
+
+_maintainer_="manuel (see forum.antergos.com)"
+_pkgsrc_="dev"
+
+pkgname=yad
+pkgver=0.41.0
+pkgrel=0
+pkgdesc="A fork of zenity - display graphical dialogs from shell scripts or command line"
+url=https://github.com/v1cont/yad
+arch=('x86_64')
+license=('GPL3')
+depends=('gtk3' 'webkit2gtk')
+makedepends=('autoconf' 'automake' 'intltool')
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
+sha512sums=(47befc927f2db19796e34a563b93934081d2f2c666f11d68e5584eef548e046c6d912c0017f933a5ec908537b39b0ea05515f97d589dedc24f9bd2c3a5bb5e3f)
+
+_version_check()
+{
+  local tmp=$(mktemp)
+
+  wget -q -O "$tmp" $url/releases/latest
+  if [ $? -eq 0 ] ; then
+    local newver="$(grep "Release YAD " $tmp | sed -e 's|^.*Release YAD ||' -e 's| .*$||')"
+    rm -f "$tmp"
+
+    if [ "$newver" != "$pkgver" ] ; then
+      echo "PKGBUILD is outdated ($pkgver -> $newver), please fix it." >&2
+      echo "The sha512sums must be updated, too." >&2
+      unset pkgver
+    fi
+  else
+    echo "Error: could not check version info." >&2
+    unset pkgver
+  fi
+}
+
+_version_check
+unset -f _version_check
+
+
+build() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    autoreconf -ivf
+    intltoolize
+    ./configure --prefix=/usr --with-gtk=gtk3 --enable-icon-browser --enable-html
+    make
+}
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    make DESTDIR="${pkgdir}" install
+}
