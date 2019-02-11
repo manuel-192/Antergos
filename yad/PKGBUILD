@@ -2,13 +2,10 @@
 # Contributor: Steven Allen <steven@stebalien.com>
 # Contributor: trile7 at gmail dot com
 # Contributor: Ernia <monghitri@aruba.it>
-# manuel 2019-01-25:
+# manuel (see forum.antergos.com) 2019-01-25:
 # - changed $url
 # - added sha512sums
 # - added _version_check
-
-_maintainer_="manuel (see forum.antergos.com)"
-_pkgsrc_="dev"
 
 pkgname=yad
 pkgver=0.41.0
