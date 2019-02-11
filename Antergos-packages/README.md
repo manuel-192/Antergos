@@ -56,7 +56,7 @@ More: https://github.com/manuel-192/wcd
 
 ### yad
 The latest AUR version of the yad package.<br>
-More: https://aur.archlinux.org/packages/yad and https://github.com/v1cont/yad
+More: https://aur.archlinux.org/packages/yad and https://github.com/manuel-192/Antergos/tree/master/yad
 
 ### yay
 The latest AUR version of the yay package.<br>
