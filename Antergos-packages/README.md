@@ -55,7 +55,7 @@ Provides a (Norton CD like) graphical directory changer (like a <b>cd</b> with a
 More: https://github.com/manuel-192/wcd
 
 ### yad
-The latest AUR version of the yad package.<br>
+The latest version of the yad package (modified the AUR PKGBUILD).<br>
 More: https://aur.archlinux.org/packages/yad and https://github.com/manuel-192/Antergos/tree/master/yad
 
 ### yay
