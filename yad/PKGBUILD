@@ -3,7 +3,7 @@
 # Contributor: trile7 at gmail dot com
 # Contributor: Ernia <monghitri@aruba.it>
 # manuel (see forum.antergos.com) 2019-01-25:
-# - changed $url
+# - changed $url, now directly from the developer
 # - added sha512sums
 # - added _version_check
 
