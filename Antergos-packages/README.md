@@ -25,11 +25,6 @@ More: https://github.com/manuel-192/arch-cl
 Install an Arch version of a package (instead of distro's own).<br>
 More: https://github.com/manuel-192/Antergos/tree/master/arch-get
 
-### assoc
-Command line program to provide associations between file names and programs to open then, based on file name extensions.
-For example, and .odt file can be associated to program libreoffice.<br>
-More: https://github.com/manuel-192/assoc
-
 ### eat
 An easy to use pastebin helper. "Eat" file contents or command outputs and send them to pastebin.<br>
 More: https://github.com/manuel-192/eat
