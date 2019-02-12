@@ -1,0 +1,54 @@
+# $Id: PKGBUILD.local.bashdb,v 1.8 2019/02/12 19:49:53 manuel Exp $
+# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Christoph Zeiler <archNOSPAM_at_moonblade.dot.org>
+#
+# manuel (see forum.antergos.com)
+# - experimentally supporting also bash 5.0
+
+pkgname=bashdb
+pkgver=4.4_1.0.1  # underscore instead of hyphen makes makepkg happy
+pkgrel=0
+pkgdesc="A debugger for Bash scripts loosely modeled on the gdb command syntax"
+arch=('any')
+url="https://sourceforge.net/projects/$pkgname"
+license=('GPL')
+depends=('bash' 'python-pygments' 'pygmentize')
+source=(https://downloads.sourceforge.net/$pkgname/$pkgname-${pkgver/_/-}.tar.bz2)
+sha512sums=(306fc5a49490fe04828cd6c64b23302e0f48ba8558780c93d45d9c615206e91dac5d8ff3d0660e50bc3204873131d1296492bccc23119d2f58c990bd3603221c)
+
+_version_check() {
+  local infourl=$url/files/$pkgname/
+  local info=$(mktemp)
+  local version
+
+  wget -q --timeout=10 -O $info $infourl
+  if [ $? -eq 0 ] ; then
+    version="$(grep "Click to enter " $info | head -n 1 | sed -e 's|^.*Click to enter ||' -e 's|".*$||')"
+    if [ "$version" != "${pkgver/_/-}" ] ; then
+      echo "WARNING: new $pkgname version '$version' is available!" >&2
+      unset pkgver   # make makepkg to stop
+    fi
+  else
+    echo "ERROR: cannot find info about the latest version of '$pkgname'!" >&2
+    unset pkgver   # make makepkg to stop
+  fi
+  rm -f $info
+}
+_version_check
+unset -f _version_check
+
+build() {
+  cd $pkgname-${pkgver//_/-}
+
+  # Support bash 5.0 as well:
+  sed -i "s/'4\.4' | '4\.1'/'5.0' | '4.4' | '4.1'/" configure
+
+  ./configure --prefix=/usr --disable-static -C
+  make
+}
+
+package() {
+  cd $pkgname-${pkgver//_/-}
+  make DESTDIR="$pkgdir" install
+  rm -f "$pkgdir"/usr/share/info/dir
+}
