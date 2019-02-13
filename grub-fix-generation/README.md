@@ -9,7 +9,7 @@ Together they cause generation of initrd lines that may lack one of the two requ
 When this problem gets fixed upstream, you should reinstall packages 'grub' and 'os-prober'
 and uninstall this package.
 
-Note: installing this package installs also a special version of file /usr/bin/update-grub. If you already have that file, then you should backup it first.
+Note: installing this package installs also a special version of file /usr/bin/update-grub. If you already have that file, then it is backed up first (with suffix .bak.<date>).
 
 ## Usage
 Run the script (required only once!):
