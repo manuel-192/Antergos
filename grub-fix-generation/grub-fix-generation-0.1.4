@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# A workaround for grub-mkconfig's initrd line generation problem on Antergos.
+# This modifies two files, see their names in the functions below.
+#
+# NOTE: to restore old behavior, simply reinstall packages 'grub' and 'os-prober'.
+#
+# $Id: grub-fix-generation,v 1.4 2019/02/04 17:13:50 manuel Exp $
+
+_check()
+{
+    "$@"
+    if [ $? -ne 0 ] ; then
+        echo "Error: '$*' failed." >&2
+        exit 1
+    fi
+}
+
+_grub_mod() {
+    local file=/etc/grub.d/30_os-prober
+
+    _check cp -f -a $file $file.bak  # backup
+    _check chmod -x $file.bak
+
+    sed -i "s|\(echo \${LINUX} \| cut -d ':' -f 5\)\`|\1 \| tr '^' ' '\`|" $file
+
+    if [ "$(diff $file $file.bak)" != "" ] ; then
+        echo "File $file modified." >&2
+    fi
+}
+
+_os_prober_mod() {
+    local file=/usr/lib/linux-boot-probes/mounted/40grub2
+
+    _check cp -f -a $file $file.bak  # backup
+    _check chmod -x $file.bak
+
+    sed -i \
+        -e 's|initrd="\$(echo "\$2"|shift; initrd="\$(echo "\$\@"|' \
+        -e 's|initrd="/boot\$initrd"|initrd=($initrd); initrd=\${initrd[@]/#//boot}|' \
+        $file
+
+    if [ "$(diff $file $file.bak)" != "" ] ; then
+        echo "File $file modified." >&2
+    fi
+}
+
+_grub_mod
+_os_prober_mod
