@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ ! -r /etc/grub-fixed ] || [ "$1" = "--force" ] ; then
+
+    # Fix grub-mkconfig generation of initrd lines for Arch derivatives.
+    # Concerns packages os-prober and grub.
+
+    if [ -x /usr/bin/grub-fix-generation ] ; then
+        /usr/bin/grub-fix-generation && touch /etc/grub-fixed
+    fi
+fi
+
+grub-mkconfig -o /boot/grub/grub.cfg
