@@ -3,7 +3,7 @@
 pkgname=grub-fix-generation
 pkgdesc="Fix os-prober and grub problem of 'initrd' line generation."
 pkgver=0.1.4
-pkgrel=2
+pkgrel=3
 arch=('any')
 license=('GPL')
 depends=('bash')
@@ -18,7 +18,15 @@ sha512sums=(
 )
 
 package() {
+  if [ -r /usr/bin/update-grub ] ; then            # backup existing update-grub
+    local backup=update-grub.bak.$(date +%Y%m%d-%H%M)
+    cp --preserve=timestamps /usr/bin/update-grub $backup
+  fi
+
   cd $srcdir
   install -Dm755 $pkgname-$pkgver $pkgdir/usr/bin/$pkgname
   install -Dm755 update-grub      $pkgdir/usr/bin/update-grub
+  if [ -r $backup ] ; then
+    install -Dm644 $backup   $pkgdir/usr/bin/$backup
+  fi
 }
