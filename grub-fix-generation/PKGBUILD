@@ -3,22 +3,22 @@
 pkgname=grub-fix-generation
 pkgdesc="Fix os-prober and grub problem of 'initrd' line generation."
 pkgver=0.1.4
-pkgrel=1
+pkgrel=2
 arch=('any')
 license=('GPL')
 depends=('bash')
 url="https://github.com/manuel-192/Antergos/raw/master"
 source=(
   "$url/$pkgname/$pkgname-$pkgver"
-  #"$url/update-grub"
+  "$url/update-grub"
 )
 sha512sums=(
   '0e4dc2a1482600b4ec75cb679df4e2a9e7687c641b49f6f7bf40d82fcdcc4cbd3b2cb9e6cb811c882aa5d976769891111124541e50a031c6624cde8e1f799a97'
-  #'4570213918f3616ef67912a181b022f48f6b3b63d0d75a95af29b87028f51d10ca3a7571b44d1e10a51301d13ff2d17c9a15f0b48d2bc8bbfb5e706fdbd0f078'
+  '4570213918f3616ef67912a181b022f48f6b3b63d0d75a95af29b87028f51d10ca3a7571b44d1e10a51301d13ff2d17c9a15f0b48d2bc8bbfb5e706fdbd0f078'
 )
 
 package() {
   cd $srcdir
-  install -Dm555 $pkgname-$pkgver $pkgdir/usr/bin/$pkgname
-  #install -Dm555 update-grub      $pkgdir/usr/bin/update-grub
+  install -Dm755 $pkgname-$pkgver $pkgdir/usr/bin/$pkgname
+  install -Dm755 update-grub      $pkgdir/usr/bin/update-grub
 }
