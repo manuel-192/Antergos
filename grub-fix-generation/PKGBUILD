@@ -2,7 +2,7 @@
 
 pkgname=grub-fix-generation
 pkgdesc="Fix os-prober and grub problem of 'initrd' line generation."
-pkgver=0.1.3
+pkgver=0.1.4
 pkgrel=1
 arch=('any')
 license=('GPL')
@@ -12,7 +12,7 @@ source=(
   "$url/$pkgname/$pkgname-$pkgver"
 )
 sha512sums=(
-  '5edf91f46b10a8a51d867a98d67726f77a6818c9a051876eeecfd7162d89015a8d30bcff16937b924538310db160d961287324c366557539638ba7c6a503f69d'
+  '0e4dc2a1482600b4ec75cb679df4e2a9e7687c641b49f6f7bf40d82fcdcc4cbd3b2cb9e6cb811c882aa5d976769891111124541e50a031c6624cde8e1f799a97'
 )
 
 package() {
