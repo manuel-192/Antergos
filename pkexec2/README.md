@@ -16,7 +16,7 @@ give the following error message:<br>
 </pre>
 but using pkexec2 instead of pkexec handles it without issues.
 <br>
-Using option --version:
+Using option --verbose:
 <pre>
 pkexec2 --verbose cp testfile ..
 </pre>
