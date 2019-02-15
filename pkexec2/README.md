@@ -14,7 +14,7 @@ give the following error message:<br>
 <pre>
 /usr/bin/cp: cannot stat 'testfile': No such file or directory
 </pre>
-but pkexec2 handles it without issues.
+but using pkexec2 instead of pkexec handles it without issues.
 <br>
 Program pkexec2 also adds a new option <b>--verbose</b> that displays the converted command before executing it.
 <br>
