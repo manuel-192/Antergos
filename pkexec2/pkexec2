@@ -1,0 +1,120 @@
+#!/bin/bash
+#
+# Command 'pkexec' wrapper, converting relative file path parameters to absolute.
+#
+# Adds also a new option --verbose to the second pkexec alternative (see: man pkexec)
+# that shows the converted command.
+#
+# Example: commands
+#       cd
+#       echo testing > myfile.txt
+#       pkexec2 --verbose --user root cp myfile.txt ..
+#   show the output:
+#       pkexec --user root cp /home/user/myfile.txt /home/user/..
+#
+
+_pkexec2_error()
+{
+    local msg="$1"
+    echo "Error: $msg." >&2
+    exit 1
+}
+
+_pkexec2_main1()
+{
+    local arg args=()
+
+    # First, handle pkexec's first alternative options:
+    #     pkexec [--version] [--disable-internal-agent] [--help]
+
+    for arg in "$@"
+    do
+        case "$arg" in
+            --version)                args+=("$arg") ;;
+            --disable-internal-agent) args+=("$arg") ;;
+            --help)                   args+=("$arg") ;;
+            *)
+                break ;;
+        esac
+    done
+
+    if [ "$args" != "" ] ; then
+        /usr/bin/pkexec "${args[@]}"
+        # First alternative was executed. Nothing to do anymore.
+        # Note: option --verbose was not supported here (well, not much need for it).
+        exit $?
+    fi
+}
+
+_pkexec2_main2()
+{
+    local args=()     # pkexec parameters are collected here
+    local arg prevarg
+    local verbose=no  # supports the new option --verbose
+
+    # Handle pkexec's second alternative's options before PROGRAM,
+    # and pkexec2's new option --verbose:
+    #    pkexec2 [--user username] [--verbose]
+
+    for arg in "$@"
+    do
+        case "$arg" in
+
+            # new options for pkexec2
+            --verbose)
+                verbose=yes
+                shift
+                prevarg="$arg"
+                ;;
+
+            # pkexec's second alternative
+            --user)
+                args+=("$arg")
+                shift
+                prevarg="$arg"
+                ;;
+            --user=*)
+                args+=("$arg")  # includes username
+                shift
+                prevarg="--user2"
+                ;;
+            -*)
+                _pkexec2_error "unsupported option '$arg'"
+                ;;
+            *)
+                test "$prevarg" != "--user" && break  # $arg must be the PROGRAM
+                args+=("$arg")     # username
+                shift
+                prevarg="$arg"
+                ;;
+        esac
+    done
+
+    # Now $args is either empty or ("--user" "<username>") or ("--user=username").
+
+    # Handle PROGRAM and its arguments (and fix paths to absolute!):
+
+    args+=("$1")  # PROGRAM
+    shift
+
+    for arg in "$@"  # handle PROGRAM arguments
+    do
+        if [ "${arg::1}" != "/" ] && [ -e "$arg" ] ; then
+            args+=("$PWD/$arg")        # a relative file or dir: make absolute path for pkexec
+        else
+            args+=("$arg")
+        fi
+    done
+
+    test "$verbose" = "yes" && echo "/usr/bin/pkexec ${args[@]}" >&2
+
+    /usr/bin/pkexec "${args[@]}"
+}
+
+_pkexec2_main()
+{
+    _pkexec2_main1 "$@"
+    _pkexec2_main2 "$@"
+}
+
+_pkexec2_main "$@"
