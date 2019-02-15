@@ -26,5 +26,8 @@ provides this output (is the command to be executed):
 <pre>
 /usr/bin/pkexec cp /home/user/testfile /home/user/..
 </pre>
+Program pkexec2 should be put to a directory in your $PATH.
+<br>
+<br>
 DISCLAIMER: this program has <b>not</b> been extensively tested and may contain (serious) bugs. Use it at your own risk!
 
