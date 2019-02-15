@@ -16,6 +16,8 @@ give the following error message:<br>
 </pre>
 but using pkexec2 instead of pkexec handles it without issues.
 <br>
+Program pkexec2 also adds a new option <b>--verbose</b> that displays the converted command before executing it.
+<br>
 Using option --verbose:
 <pre>
 pkexec2 --verbose cp testfile ..
@@ -24,7 +26,6 @@ provides this output:
 <pre>
 /usr/bin/pkexec cp /home/user/testfile /home/user/..
 </pre>
-Program pkexec2 also adds a new option <b>--verbose</b> that displays the converted command before executing it.
 <br>
 <br>
 DISCLAIMER: this program has <b>not</b> been extensively tested and may contain (serious) bugs. Use it at your own risk!
