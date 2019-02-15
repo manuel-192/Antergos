@@ -25,7 +25,6 @@ provides this output:
 /usr/bin/pkexec cp /home/user/testfile /home/user/..
 </pre>
 <br>
-<br>
 Program pkexec2 also adds a new option <b>--verbose</b> that displays the converted command before executing it.
 <br>
 <br>
