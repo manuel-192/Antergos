@@ -16,6 +16,15 @@ give the following error message:<br>
 </pre>
 but using pkexec2 instead of pkexec handles it without issues.
 <br>
+Using option --version:
+<pre>
+pkexec2 --verbose cp testfile ..
+</pre>
+provides this output:
+<pre>
+/usr/bin/pkexec cp /home/user/testfile /home/user/..
+</pre>
+<br>
 <br>
 Program pkexec2 also adds a new option <b>--verbose</b> that displays the converted command before executing it.
 <br>
