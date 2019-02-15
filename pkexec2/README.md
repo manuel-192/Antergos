@@ -26,7 +26,5 @@ provides this output:
 <pre>
 /usr/bin/pkexec cp /home/user/testfile /home/user/..
 </pre>
-<br>
-<br>
 DISCLAIMER: this program has <b>not</b> been extensively tested and may contain (serious) bugs. Use it at your own risk!
 
