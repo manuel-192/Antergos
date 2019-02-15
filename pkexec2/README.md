@@ -22,7 +22,7 @@ Using option --verbose:
 <pre>
 pkexec2 --verbose cp testfile ..
 </pre>
-provides this output:
+provides this output (is the command to be executed):
 <pre>
 /usr/bin/pkexec cp /home/user/testfile /home/user/..
 </pre>
