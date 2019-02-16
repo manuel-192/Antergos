@@ -33,6 +33,10 @@ More: https://github.com/manuel-192/eat
 Fix for <b>grub-mkconfig</b> which currently generates incorrect grub boot menu entries for Arch based operating systems into /boot/grub/grub.cfg. This script fixes the generator.<br>
 More: https://github.com/manuel-192/Antergos/tree/master/grub-fix-generation
 
+### pkexec2
+Wrapper for pkexec, retaining the current working directory instead of changing it to /root.<br>
+More: https://github.com/manuel-192/Antergos/tree/master/pkexec2
+
 ### pkg-analyze-antergos
 Show Antergos package versions compared to Arch and AUR counterparts.<br>
 More: https://github.com/manuel-192/Antergos/tree/master/pkg-analyze-antergos
