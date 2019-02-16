@@ -5,7 +5,7 @@ Because of that, pkexec is not as easy to use as sudo
 since, for example, you have to write the absolute paths of command parameter files and directories yourself.
 <br>
 <br>
-Example: compare the output of the following commands (when your current directory is not /root):
+Example: compare the output of the following commands (executed as a non-root user):
 <pre>
 pkexec pwd
 pkexec2 pwd
