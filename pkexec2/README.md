@@ -10,7 +10,7 @@ Example: compare the output of the following commands (executed as a non-root us
 pkexec pwd
 pkexec2 pwd
 </pre>
-Program <b>pkexec2</b> and its helper program <b>cmdindir</b> should be put to a directory in your $PATH.
+PKGBUILD causes makepkg to install two programs: /usr/bin/pkgexec2 and /usr/bin/cmdindir.
 <br>
 <br>
 DISCLAIMER: this program has <b>not</b> been extensively tested and may contain (serious) bugs. Use it at your own risk!
