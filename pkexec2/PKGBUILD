@@ -1,7 +1,7 @@
 # Maintainer: manuel (see forum.antergos.com)
 
 pkgname=pkexec2
-pkgdesc='pkexec wrapper, but retains the current working directory instead of changing it to /root'
+pkgdesc='pkexec2 is a pkexec wrapper, but retains the current working directory instead of changing it to /root'
 pkgver=0.1.1
 pkgrel=1
 arch=('any')
