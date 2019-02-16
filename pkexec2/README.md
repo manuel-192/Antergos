@@ -1,33 +1,16 @@
 # pkexec2
-is a <b>pkexec</b> wrapper that is designed to fix the slightly annoying feature of pkexec: it does not use absolute paths for files/directories
-in the current/relative directory. Because of that, pkexec is not as easy to use as e.g. sudo
-since you have to write the absolute paths yourself.
+is a <b>pkexec</b> wrapper and is designed to fix the slightly annoying feature of pkexec:
+it changes directory to /root before executing the command.
+Because of that, pkexec is not as easy to use as sudo
+since, for example, you have to write the absolute paths of command parameter files and directories yourself.
 <br>
 <br>
-Example: the following commands:
+Example: compare the output of the following commands:
 <pre>
-cd
-touch testfile
-pkexec cp testfile ..
+pkexec pwd
+pkexec2 pwd
 </pre>
-give the following error message:<br>
-<pre>
-/usr/bin/cp: cannot stat 'testfile': No such file or directory
-</pre>
-but using pkexec2 instead of pkexec handles it without issues.
-<br>
-<br>
-Program pkexec2 also adds a new option <b>--verbose</b> that displays the converted command before executing it.
-<br>
-Using option --verbose:
-<pre>
-pkexec2 --verbose cp testfile ..
-</pre>
-provides this output (is the command to be executed):
-<pre>
-/usr/bin/pkexec cp /home/user/testfile /home/user/..
-</pre>
-Program pkexec2 should be put to a directory in your $PATH.
+Program <b>pkexec2</b> and its helper program <b>cmdindir</b> should be put to a directory in your $PATH.
 <br>
 <br>
 DISCLAIMER: this program has <b>not</b> been extensively tested and may contain (serious) bugs. Use it at your own risk!
