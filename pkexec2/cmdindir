@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Helper for pkexec2.
+# Performs a command in the given directory.
+# Usage: $0 directory command [parameters]
+#
+
+cd "$1"
+shift
+"$@"
