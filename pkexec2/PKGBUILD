@@ -2,23 +2,17 @@
 
 pkgname=pkexec2
 pkgdesc='pkexec wrapper, but retains the current working directory instead of changing it to /root'
-pkgver=0.1.9
+pkgver=0.1.1
 pkgrel=1
 arch=('any')
 license=('GPL')
-depends=('bash')
-url="https://github.com/manuel-192/Antergos/raw/master"
-source=(
-  "$url/$pkgname/$pkgname"
-  "$url/$pkgname/cmdindir"
-)
-sha512sums=(
-  '70e8c338d9ac3f16323a12f4ce14aa39429cb2712df924bf2cb50d5fbb60c66f48cd6e2a9bb6a88771e729372075f7c30ff1b6d52e57f633ac86363aa6576c91'
-  '65f5a9967b3c56c923075afc52e5963058105673688551c5925601fe2d6c5418504cbceaeb4dab0c8b421dca4bab121a88400ed164206077eef2a540752d84b9'
-)
+depends=('bash' 'polkit')
 
 package() {
+  local helper=cmdindir
   cd $srcdir
+  echo 'pkexec '"$helper"' "$PWD" "$@"' > $pkgname
+  echo 'cd "$1" ; shift ; "$@"'         > $helper
   install -Dm755 $pkgname    $pkgdir/usr/bin/$pkgname
-  install -Dm755 cmdindir    $pkgdir/usr/bin/cmdindir
+  install -Dm755 $helper     $pkgdir/usr/bin/$helper
 }
