@@ -18,8 +18,8 @@ sha512sums=(
 )
 
 package() {
+  local backup=update-grub.bak.$(date +%Y%m%d-%H%M)
   if [ -r /usr/bin/update-grub ] ; then            # backup existing update-grub
-    local backup=update-grub.bak.$(date +%Y%m%d-%H%M)
     cp --preserve=timestamps /usr/bin/update-grub $backup
   fi
 
