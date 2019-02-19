@@ -26,11 +26,11 @@ _version_check() {
     version="$(grep "Click to enter " $info | head -n 1 | sed -e 's|^.*Click to enter ||' -e 's|".*$||')"
     if [ "$version" != "${pkgver/_/-}" ] ; then
       echo "WARNING: new $pkgname version '$version' is available!" >&2
-      unset pkgver   # make makepkg to stop
+      unset pkgver   # stop makepkg
     fi
   else
     echo "ERROR: cannot find info about the latest version of '$pkgname'!" >&2
-    unset pkgver   # make makepkg to stop
+    unset pkgver   # stop makepkg
   fi
   rm -f $info
 }
