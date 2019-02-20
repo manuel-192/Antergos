@@ -2,8 +2,8 @@
 
 pkgname=pkexec2
 pkgdesc='pkexec2 is a pkexec wrapper, retaining the current working directory instead of changing it to /root'
-pkgver=0.1.1
-pkgrel=1
+pkgver=0.1.3
+pkgrel=0
 arch=('any')
 license=('GPL')
 depends=('bash' 'polkit')
@@ -11,8 +11,13 @@ depends=('bash' 'polkit')
 package() {
   local helper=cmdindir
   cd $srcdir
-  echo 'pkexec '"$helper"' "$PWD" "$@"' > $pkgname
-  echo 'cd "$1" ; shift ; "$@"'         > $helper
+
+  echo "#!/bin/bash"                    >  $pkgname
+  echo 'pkexec '"$helper"' "$PWD" "$@"' >> $pkgname
+
+  echo "#!/bin/bash"                    >  $helper
+  echo 'cd "$1" ; shift ; "$@"'         >> $helper
+
   install -Dm755 $pkgname    $pkgdir/usr/bin/$pkgname
   install -Dm755 $helper     $pkgdir/usr/bin/$helper
 }
