@@ -3,7 +3,7 @@ The easiest way to install these packages is using the package/program <b>pkgget
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
 
-NOTE: Some of these packages are built from the AUR repos (e.g. yad and yay). They are here for people who wish to easily download the latest packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
+NOTE: Some of these packages may have been built from the AUR repos (e.g. yad and yay). They are here for people who wish to easily download the <i>latest available</i> packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
 
 ### UserManager
 Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.<br>
@@ -57,14 +57,6 @@ More: https://github.com/manuel-192/syu
 ### wcd
 Provides a (Norton CD like) graphical directory changer (like a <b>cd</b> with a GUI).<br>
 More: https://github.com/manuel-192/wcd
-
-### yad
-The latest version of the yad package (modified the AUR PKGBUILD).<br>
-More: https://github.com/manuel-192/Antergos/tree/master/yad and https://aur.archlinux.org/packages/yad
-
-### yay
-The latest AUR version of the yay package.<br>
-More: https://aur.archlinux.org/packages/yay
 
 ### yaygg
 A simple GUI based launcher generator, based on the yad framework.<br>
