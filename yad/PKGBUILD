@@ -8,7 +8,7 @@
 # - added _version_check
 
 pkgname=yad
-pkgver=0.41.0
+pkgver=0.42.0
 pkgrel=0
 pkgdesc="A fork of zenity - display graphical dialogs from shell scripts or command line"
 url=https://github.com/v1cont/yad
@@ -17,7 +17,7 @@ license=('GPL3')
 depends=('gtk3' 'webkit2gtk')
 makedepends=('autoconf' 'automake' 'intltool')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
-sha512sums=(47befc927f2db19796e34a563b93934081d2f2c666f11d68e5584eef548e046c6d912c0017f933a5ec908537b39b0ea05515f97d589dedc24f9bd2c3a5bb5e3f)
+sha512sums=(700b11f449b63ec1bc8fecf0d2df3ed18bc7078472de0f3ee034c28e3e096eb61559529cc094c76fc8a9959bbb3e5f159d621ad9739d857b0d9b8d7ff386deaa)
 
 _version_check()
 {
@@ -26,8 +26,6 @@ _version_check()
   wget -q -O "$tmp" $url/releases/latest
   if [ $? -eq 0 ] ; then
     local newver="$(grep "Release YAD " $tmp | sed -e 's|^.*Release YAD ||' -e 's| .*$||')"
-    rm -f "$tmp"
-
     if [ "$newver" != "$pkgver" ] ; then
       echo "PKGBUILD is outdated ($pkgver -> $newver), please fix it." >&2
       echo "The sha512sums must be updated, too." >&2
@@ -37,6 +35,7 @@ _version_check()
     echo "Error: could not check version info." >&2
     unset pkgver
   fi
+  rm -f "$tmp"
 }
 
 _version_check
