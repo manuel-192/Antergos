@@ -1,5 +1,18 @@
 # Collection of pre-built packages (some built from the AUR).
 
+To use the packages below, you need to do these things in your system:
+- edit file <b>/etc/pacman.conf</b> and to the end add the following lines:
+<pre>
+[mgit]
+Server = https://github.com/manuel-192/Antergos/raw/master/Antergos-packages
+SigLevel = Required
+</pre>
+- run the following commands:
+<pre>
+sudo pacman-key --keyserver keys.gnupg.net -r A1F1B5187D25904B
+sudo pacman-key --lsign-key A1F1B5187D25904B
+</pre>
+
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
 
 NOTE: Some of these packages may have been built from the AUR repos (e.g. yad and yay). They are here for people who wish to easily download the <i>latest available</i> packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
