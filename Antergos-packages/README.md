@@ -16,6 +16,7 @@ Now the hard part is done! But still one thing to do: update your repos and pack
 <pre>
 sudo pacman -Syyu
 </pre>
+and you should see two new package databases (<b>mgit</b> and <b>mgit.sig</b>).
 
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
