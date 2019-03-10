@@ -12,6 +12,11 @@ SigLevel = Required
 sudo pacman-key --keyserver keys.gnupg.net -r A1F1B5187D25904B
 sudo pacman-key --lsign-key A1F1B5187D25904B
 </pre>
+Now the hard part is done! But still one thing to do: update your repos and packages:
+<pre>
+sudo pacman -Syyu
+</pre>
+
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
 
