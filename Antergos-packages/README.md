@@ -1,5 +1,4 @@
 # Collection of pre-built packages (some built from the AUR).
-The easiest way to install these packages is using the package/program <b>pkgget</b>. Download it first, and then you may install others at will.
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I try to build and transfer them here using the best coding and safety practices I know of.
 
@@ -40,11 +39,6 @@ More: https://github.com/manuel-192/Antergos/tree/master/pkexec2
 ### pkg-analyze-antergos
 Show Antergos package versions compared to Arch and AUR counterparts.<br>
 More: https://github.com/manuel-192/Antergos/tree/master/pkg-analyze-antergos
-
-### pkgget
-Install any package from this "repo" (you are looking at it right now!).<br>
-<b>Warning</b>: be aware that packages here have no signatures, so use this at your own risk. However, pkgget checks packages with sha512sum after download.<br>
-More: https://github.com/manuel-192/Antergos/tree/master/pkgget
 
 ### remirror
 Rank mirrors on Antergos and/or Arch.<br>
