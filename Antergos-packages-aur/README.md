@@ -9,3 +9,4 @@ but note that the server info is slightly different:
 Server = https://github.com/manuel-192/Antergos/raw/master/Antergos-packages-aur
 SigLevel = Required
 </pre>
+Otherwise the instructions are valid.
