@@ -1,6 +1,6 @@
-# Prebuilt AUR (and Arch) packages for Antergos users.
+# Prebuilt AUR packages for Antergos users.
 
-This repo includes certain hand picked packages for Antergos users. The packages are built using the AUR and/or Arch PKGBUILD definitions.
+This repo includes certain hand picked packages for Antergos users. The packages are built using the AUR PKGBUILD definitions.
 <br>
 You may write to https://forum.antergos.com about any issues with this repo.
 <br><br>
@@ -19,9 +19,6 @@ And you don't have to add the pacman key (gpg key) anymore if you already have d
 Currently (2019-Mar-12) this repo includes the following AUR packages:
 - yad
 - yay
-
-and the following Arch packages:
-- xed
-- mate-icon-theme
+- inxi
 
 Special note: any of the packages here may be removed when the corresponding Antergos packages are made available.
