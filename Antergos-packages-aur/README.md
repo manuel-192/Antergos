@@ -14,6 +14,8 @@ SigLevel = Required
 </pre>
 - the above repo definition needs to be placed before the <b>[antergos]</b> repo definition.
 
+And you don't have to add the gpg key anymore if you already have done so.
+<br>
 Currently (2019-Mar-12) this repo includes the following AUR packages:
 - yad
 - yay
