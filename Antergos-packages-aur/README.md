@@ -22,5 +22,6 @@ Currently (2019-Mar-12) this repo includes the following AUR packages:
 
 and the following Arch packages:
 - xed
+- mate-icon-theme
 
 Special note: any of the packages here may be removed when the corresponding Antergos packages are made available.
