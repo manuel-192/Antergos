@@ -56,8 +56,6 @@ _my_cp_completion()
     opts+=" --backup --backup= --preserve --preserve= --no-preserve="
     opts+=" --reflink --reflink= --sparse="
     opts+=" -S --suffix= -t --target-directory= --context --context="
-    opts+=" --jeejee"
-
 
     case "$cur" in
         -*|"")
