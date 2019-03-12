@@ -14,5 +14,7 @@ SigLevel = Required
 Currently this repo includes the following AUR packages:
 - yad
 - yay
+
 and the following Arch packages:
 - xed
+
