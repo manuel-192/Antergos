@@ -12,7 +12,7 @@ SigLevel = Required
 </pre>
 - the above repo definition needs to be placed before the <b>[antergos]</b> repo definition.
 
-Currently this repo includes the following AUR packages:
+Currently (2019-Mar-12) this repo includes the following AUR packages:
 - yad
 - yay
 
