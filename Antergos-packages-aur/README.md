@@ -1,5 +1,7 @@
-# Some prebuilt AUR (and Arch) packages for Antergos users.
+# Prebuilt AUR (and Arch) packages for Antergos users.
 
+This repo includes certain hand picked packages for Antergos users. The packages are built using the AUR and/or Arch PKGBUILD definitions.
+<br>
 You may write to https://forum.antergos.com about any issues with this repo.
 <br><br>
 How to use this repo? Check the instructions here: https://github.com/manuel-192/Antergos/blob/master/Antergos-packages/README.md
