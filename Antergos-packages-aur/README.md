@@ -1,4 +1,4 @@
-# Some prebuilt AUR packages for Antergos users.
+# Some prebuilt AUR (and Arch) packages for Antergos users.
 
 You may write to https://forum.antergos.com about any issues with this repo.
 <br><br>
