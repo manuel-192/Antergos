@@ -11,3 +11,8 @@ Server = https://github.com/manuel-192/Antergos/raw/master/Antergos-packages-aur
 SigLevel = Required
 </pre>
 - the above repo definition needs to be placed before the <b>[antergos]</b> repo definition.
+Currently this repo includes the following AUR packages:
+- yad
+- yay
+and the following Arch packages:
+- xed
