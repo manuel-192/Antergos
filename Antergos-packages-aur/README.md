@@ -4,7 +4,7 @@ This repo includes certain hand picked packages for Antergos users. The packages
 <br>
 You may write to https://forum.antergos.com about any issues with this repo.
 <br><br>
-How to use this repo? Check the instructions [here](https://github.com/manuel-192/Antergos/blob/master/Antergos-packages/README.md):
+How to use this repo? Check the instructions [here](https://github.com/manuel-192/Antergos/blob/master/Antergos-packages/README.md)
 with the following modifications:
 - the repo info is slightly different:
 <pre>
