@@ -48,7 +48,8 @@ Replacement for the official bash completion for the 'cp' command. Supports many
 <br>
 Note: this package also installs a program <b>remove_cp_command_from_common_completions</b> that can be used
 for removing the 'cp' command from the official bash completion. It needs to be run only once, and after every upgrade
-of package <b>bash-completion</b>.
+of package <b>bash-completion</b>.<br>
+More: https://github.com/manuel-192/Antergos/tree/master/misc-stuff (slightly outdated)
 
 ### eat
 An easy to use pastebin helper. "Eat" file contents or command outputs and send them to pastebin.<br>
