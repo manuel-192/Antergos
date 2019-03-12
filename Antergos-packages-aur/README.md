@@ -4,7 +4,7 @@ You may write to https://forum.antergos.com about any issues with this repo.
 <br><br>
 How to use this repo? Check the instructions here: https://github.com/manuel-192/Antergos/blob/master/Antergos-packages/README.md
 but:
-- the server in the repo info is slightly different:
+- the repo info is slightly different:
 <pre>
 [mgit-aur]
 Server = https://github.com/manuel-192/Antergos/raw/master/Antergos-packages-aur
