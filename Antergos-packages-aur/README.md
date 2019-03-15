@@ -16,9 +16,13 @@ SigLevel = Required
 
 And you don't have to add the pacman key (gpg key) anymore if you already have done so.
 <br><br>
-Currently (2019-Mar-12) this repo includes the following AUR packages:
+Currently (2019-Mar-15) this repo includes the following AUR packages:
+- bashdb
+- ccrypt
+- inxi
+- repo-add_and_sign
+- virtualbox-ext-oracle
 - yad
 - yay
-- inxi
 
 Special note: any of the packages here may be removed when the corresponding Antergos packages are made available.
