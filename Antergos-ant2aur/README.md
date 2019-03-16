@@ -7,7 +7,7 @@ How to use this repo? Check these [instructions](https://github.com/manuel-192/A
 with the following modifications:
 - the repo info is slightly different:
 <pre>
-[mgit-aur]
+[ant2new]
 Server = https://github.com/manuel-192/Antergos/raw/master/Antergos-ant2aur
 SigLevel = Required
 </pre>
