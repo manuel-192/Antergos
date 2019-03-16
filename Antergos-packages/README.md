@@ -20,6 +20,8 @@ and you should also see two new package databases (<b>mgit</b> and <b>mgit.sig</
 
 <b>Disclaimer</b>: <u>use these packages at your own risk!</u> I have no way of guaranteeing the safety of these packages. I build and sign them, and transfer them here using the best coding and safety practices I know of.
 
+## Packages
+
 ### UserManager
 Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.<br>
 More: https://github.com/manuel-192/UserManager
