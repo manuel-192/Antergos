@@ -18,10 +18,7 @@ sudo pacman -Syyu
 </pre>
 and you should also see two new package databases (<b>mgit</b> and <b>mgit.sig</b>).
 
-
-<b>Disclaimer</b>: <u>use these packages at your own risk!</u> I cannot guarantee the safety of these packages, but I build and transfer them here using the best coding and safety practices I know of.
-
-NOTE: Some of these packages may have been built from the AUR repos (e.g. yad and yay). They are here for people who wish to easily download the <i>latest available</i> packages into their systems. I may remove the AUR packages from here at any time, since they are better served at their original locations.
+<b>Disclaimer</b>: <u>use these packages at your own risk!</u> I have no way of guaranteeing the safety of these packages. I build and sign them, and transfer them here using the best coding and safety practices I know of.
 
 ### UserManager
 Simple graphical user manager, mainly for Xfce users in systems where there is no graphical user manager.<br>
