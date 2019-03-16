@@ -12,17 +12,13 @@ with the following modifications:
 Server = https://github.com/manuel-192/Antergos/raw/master/Antergos-packages-aur
 SigLevel = Required
 </pre>
-- the above repo definition needs to be placed before the <b>[antergos]</b> repo definition.
 
 And you don't have to add the pacman key (gpg key) anymore if you already have done so.
 <br><br>
-Currently (2019-Mar-15) this repo includes the following AUR packages:
+Currently (2019-Mar-16) this repo includes the following AUR packages:
 - bashdb
 - ccrypt
-- inxi
 - repo-add_and_sign
 - virtualbox-ext-oracle
-- yad
-- yay
 
-Special note: any of the packages here may be removed when the corresponding Antergos packages are made available.
+Special note: any of the packages here may be removed if the corresponding Antergos packages are made available.
