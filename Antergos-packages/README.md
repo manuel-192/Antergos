@@ -18,7 +18,7 @@ sudo pacman -Syyu
 </pre>
 and you should also see two new package databases (<b>mgit</b> and <b>mgit.sig</b>).
 
-<b>DISCLAIMER</b>: <u>use these packages at your own risk!</u> I have no way of guaranteeing the safety of these packages. I build and sign (using name <i>manuel-192</i>) them, and transfer them here using the best coding and safety practices I know of.
+<b>DISCLAIMER</b>: <u>use these packages at your own risk!</u> I have no way of guaranteeing the safety of these packages. I build and sign (using name <i>manuel-192</i>) them, and transfer them here using the best safety practices I know of.
 
 ## Packages
 
