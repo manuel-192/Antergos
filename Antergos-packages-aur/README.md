@@ -18,6 +18,7 @@ And you don't have to add the pacman key (gpg key) anymore if you already have d
 Currently (2019-Mar-16) this repo includes the following AUR packages:
 - bashdb
 - ccrypt
+- python3-gpg_batch_sign
 - repo-add_and_sign
 - virtualbox-ext-oracle
 
