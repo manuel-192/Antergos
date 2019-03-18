@@ -15,9 +15,8 @@ SigLevel = Required
 
 And you don't have to add the pacman key (gpg key) anymore if you already have done so.
 <br><br>
-Currently (2019-Mar-16) this repo includes the following AUR packages:
+Currently (2019-Mar-18) this repo includes the following AUR packages:
 - inxi
 - yad
-- yay
 
 Special note: any of the packages here may be removed if/when the corresponding Antergos packages are made available in the official repos.
