@@ -20,4 +20,4 @@ Currently (2019-Mar-16) this repo includes the following AUR packages:
 - yad
 - yay
 
-Special note: any of the packages here may be removed when the corresponding Antergos packages are made available in the official repos.
+Special note: any of the packages here may be removed if/when the corresponding Antergos packages are made available in the official repos.
