@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# Maintainer: manuel (see forum.antergos.com)
+
+Preparations_for_pkgbuild()
+{
+    # Get the AUR PKGBUILD of $Pkgname and check it for modifications (with sha512sum).
+    # If it is not modified, use it.
+    # This provides an extra layer of security (and a little more complexity!) on top of the AUR packages.
+
+    local Pkgname=inxi         # The AUR package name.
+
+    local Files=(              # AUR files to download: PKGBUILD and possible others.
+                               # Note that checking also possible other files enhances security.
+        PKGBUILD
+    )
+    local Sha512sums=(         # The sha52sums for the downloaded AUR files.
+        12e1c0ee67391da958125e54a2cbdc043e969b7c12fdc82999a2bf65687dd182310f711e4da90c3f430f258f107de158d1aa776b36a4acfbf91eee91544b255f
+    )
+
+    # Helper variables:
+    local Head="https://aur.archlinux.org/cgit/aur.git/plain"
+    local Tail="?h=$Pkgname"
+    local Pkgbuild="_PKGBUILD_$Pkgname"
+
+    # Now fetch the AUR PKGBUILD and possible other files:
+    local file realfile furl ix=0
+    for file in "${Files[@]}"
+    do
+        furl="$Head/$file$Tail"
+        case "$file" in
+            PKGBUILD) realfile="$Pkgbuild" ;;
+            *)        realfile="$file" ;;
+        esac
+        if [ ! -r $realfile ] || [ "$file" = "PKGBUILD" ] ; then
+            wget -q --timeout=10 -O "$realfile" "$furl" || return 1
+        fi
+        echo "${Sha512sums[$ix]}  $realfile" | sha512sum -c >/dev/null || return 1
+        ((ix++))
+    done
+
+    # If AUR PKGBUILD pkgver is 3.0.30, change it to 3.0.32.
+    # Note that sha256sums of the source code package also may change accordingly.
+
+    if [ "$(grep "^pkgver=" "$Pkgbuild" | cut -d '=' -f 2)" = "3.0.30" ] ; then
+        sed -i 's|^pkgver=3\.0\.30|pkgver=3.0.32|' "$Pkgbuild"
+        sed -i 's|^sha256sums=(.*$|sha256sums=(aadd0ee54d0710520fc89a61378cfabfbad54f479a228107af9398e243cfea9d)|' "$Pkgbuild"
+    fi
+
+    # Check the real source code whether AUR PKGBUILD has now the latest version. If not, warn and stop.
+
+    local VersionIsOk=yes
+    local Url="$(grep "^url=" "$Pkgbuild" | cut -d '=' -f 2 | tr -d '"')"     # here is the official code
+    local Pkgver="$(grep "^pkgver=" "$Pkgbuild" | cut -d '=' -f 2)"           # package version info from AUR PKGBUILD
+    local Pkgrel="$(grep "^pkgrel=" "$Pkgbuild" | cut -d '=' -f 2)"           # package release info from AUR PKGBUILD
+    local info=$(mktemp)
+    local latest
+
+    wget -q -O $info $Url/releases
+    if [ $? -eq 0 ] ; then
+        latest="$(grep /releases/tag/ $info | head -n 1 | sed -e 's|^.*/tag/||' -e 's|".*$||')"
+        if [ $(vercmp "$latest" "${Pkgver}-${Pkgrel}") -gt 0 ] ; then
+            echo "ERROR: $Pkgname: AUR PKGBUILD is outdated ($Pkgver < $newver), check '$Url'." >&2
+            VersionIsOk=no
+        fi
+    else
+        echo "ERROR: $Pkgname: could not check version info from $Url." >&2
+        VersionIsOk=no
+    fi
+    rm -f "$info"
+
+    if [ "$VersionIsOk" = "yes" ] ; then
+        source "$Pkgbuild"                   # Allow running now the (possibly updated) AUR PKGBUILD
+    else
+        return 1
+    fi
+}
+Preparations_for_pkgbuild
+unset -f Preparations_for_pkgbuild
