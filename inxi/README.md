@@ -1,2 +1,2 @@
 # inxi
-Version 3.0.32-1
+Prebuilt from AUR, but version upgraded to 3.0.32-1
