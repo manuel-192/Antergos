@@ -1,4 +1,4 @@
-# Latest AUR packages for Antergos
+# Latest AUR packages for Antergos (NOTE soon becoming obsolete!)
 This repo includes certain hand picked packages for Antergos users. The packages are built using the AUR PKGBUILD definitions.
 <br>
 You may write to https://forum.antergos.com about any issues with this repo.
