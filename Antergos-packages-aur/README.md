@@ -1,5 +1,7 @@
 # Prebuilt AUR packages for Antergos users.
 <b>NOTE: this repo will be moved to https://github.com/manuel-192/antergos-maur within a few days!</b>
+<br>
+<b>Note also that the repo info will be changed too.</b>
 <br><br>
 This repo includes certain hand picked packages for Antergos users. The packages are built using the AUR PKGBUILD definitions.
 <br>
