@@ -1,5 +1,8 @@
 # Collection of pre-built packages (some built from the AUR).
-
+<b>NOTE: this repo will be moved to https://github.com/manuel-192/antergos-m in a few days.</b>
+<br>
+Note also that the repo info will be changed.
+<br><br>
 To use the packages of this repo, you need to do these things in your system:
 - edit file <b>/etc/pacman.conf</b> and to the end add the following lines:
 <pre>
