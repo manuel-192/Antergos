@@ -1,4 +1,8 @@
 # Latest AUR packages for Antergos (NOTE soon becoming obsolete!)
+<b>This repo will be moved to https://github.com/manuel-192/antergos-mup in a few days.</b>
+<br>
+The repo info will be changed too.
+<br><br>
 This repo includes certain hand picked packages for Antergos users. The packages are built using the AUR PKGBUILD definitions.
 <br>
 You may write to https://forum.antergos.com about any issues with this repo.
