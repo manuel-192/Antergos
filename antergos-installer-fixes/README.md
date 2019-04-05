@@ -4,7 +4,7 @@ Here you'll find scripts that fix known Antergos installer issues. If you encoun
 
 ## Scripts
 ### fix-packages-xml
-How to use:
+Start the Antergos installer and give the following commands at the terminal:
 <pre>
 wget -q -O fix-packages-xml https://github.com/manuel-192/Antergos/raw/master/antergos-installer-fixes/fix-packages-xml
 sudo bash fix-packages-xml
