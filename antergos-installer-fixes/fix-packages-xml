@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# Remove given packages from packages.xml.
+
+Main()
+{
+    local packages_to_remove="$*"
+    local file=/usr/share/cnchi/data/packages.xml
+    if [ "$packages_to_remove" = "" ] ; then
+        packages_to_remove="gamin wpa_actiond xorg-mkfontdir mate-mint-menu"
+        echo "Removing packages '$packages_to_remove' from $file"
+    fi
+    local pkg
+    local head="<pkgname>"
+    local tail="</pkgname>"
+
+    test "$packages_to_remove" = "" && { echo "ERROR: no packages given." ; return 1 ; }
+    test $(id -u) -ne 0 && { echo "You must be root to do this." ; return 1 ; }
+
+    test ! -r $file.orig && cp $file $file.orig
+
+    for pkg in $packages_to_remove ; do
+        grep -v "$head$pkg$tail" $file > $file.tmp
+        rm -f $file
+        mv $file.tmp $file
+    done
+    echo "The following lines were removed:"
+    diff $file $file.orig
+
+    local answer
+    read -p "Restart cnchi (Y/n)? " answer
+    case "$answer" in
+        ""|y|Y) cnchi -p $file ;;
+    esac
+}
+
+Main "$@"
