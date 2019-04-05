@@ -7,7 +7,7 @@ Main()
     local packages_to_remove="$*"
     local file=/usr/share/cnchi/data/packages.xml
     if [ "$packages_to_remove" = "" ] ; then
-        packages_to_remove="gamin wpa_actiond xorg-mkfontdir mate-mint-menu"
+        packages_to_remove="gamin wpa_actiond xorg-mkfontdir mate-mint-menu deepin-grub2-themes thermald vivaldi"
         echo "Removing packages '$packages_to_remove' from $file"
     fi
     local pkg
