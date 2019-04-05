@@ -6,7 +6,7 @@ Here you'll find scripts that fix known Antergos installer issues. If you encoun
 ### fix-packages-xml
 How to use:
 <pre>
-wget -q -O fix-packages-xml ??
+wget -q -O fix-packages-xml https://github.com/manuel-192/Antergos/raw/master/antergos-installer-fixes/fix-packages-xml
 sudo bash fix-packages-xml
 </pre>
 You can also give your list of packages to remove as parameters to fix-packages-xml.
