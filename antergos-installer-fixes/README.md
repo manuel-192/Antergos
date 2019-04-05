@@ -11,6 +11,6 @@ sudo bash fix-packages-xml
 </pre>
 You can also give your list of packages to remove as parameters to fix-packages-xml.
 
-## Chanegs:
+## Changes:
 
 2019-Apr-05: Added fix-packages-xml.
