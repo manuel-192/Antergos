@@ -1,7 +1,7 @@
 # Antergos installer workarounds
 
 Here you'll find scripts that fix known Antergos installer issues. If you encounter installation problems relates to missing packages, this may help.
-
+## Scripts
 ### fix-packages-xml
 #### Description
 Fixes problems with certain missing packages
