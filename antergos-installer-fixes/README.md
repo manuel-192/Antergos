@@ -14,7 +14,7 @@ wget -q -O fix-packages-xml https://github.com/manuel-192/Antergos/raw/master/an
 sudo bash fix-packages-xml
 </pre>
 You can also give your list of packages to remove as parameters to fix-packages-xml.
-<br><br>
+## More info
 If you find any new installer issues, please report them at the [Antergos forum](https://forum.antergos.com/category/3/installation).
 
 ## Changes:
