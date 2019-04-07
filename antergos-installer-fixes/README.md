@@ -1,4 +1,4 @@
-# Antergos installer fixes
+# Antergos installer workarounds
 
 Here you'll find scripts that fix known Antergos installer issues. If you encounter installation problems relates to missing packages, this may help.
 
