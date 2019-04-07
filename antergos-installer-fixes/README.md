@@ -13,7 +13,7 @@ sudo bash fix-packages-xml
 </pre>
 You can also give your list of packages to remove as parameters to fix-packages-xml.
 <br><br>
-If you find any new installer issues, please report them at https://forum.antergos.com.
+If you find any new installer issues, please report them at [Antergos forum](https://forum.antergos.com/category/3/installation).
 
 ## Changes:
 
