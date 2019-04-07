@@ -2,10 +2,10 @@
 
 Here you'll find scripts that fix known Antergos installer issues. If you encounter installation problems relates to missing packages, this may help.
 
-## fix-packages-xml
-### Description
+### fix-packages-xml
+#### Description
 Fixes problems with certain missing packages
-## Usage
+### Usage
 - Start the Antergos installer from the USB stick (or ISO on the virtual machine).
 - When cnchi (the installer program) window starts, close the cnchi window.
 - Start a terminal program and give the following commands that will also restart the cnchi installer:
@@ -17,6 +17,6 @@ You can also give your list of packages to remove as parameters to fix-packages-
 <br><br>
 If you find any new installer issues, please report them at the [Antergos forum](https://forum.antergos.com/category/3/installation).
 
-# Changes:
+## Changes:
 
 2019-Apr-05: Added fix-packages-xml.
