@@ -21,3 +21,6 @@ and re-generate grub.cfg:
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 </pre>
 Check that the initrd lines in /boot/grub/grub.cfg are valid now.
+
+## See also
+https://github.com/manuel-192/antergos-m
