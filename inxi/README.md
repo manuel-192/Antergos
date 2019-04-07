@@ -1,4 +1,4 @@
 # inxi
 Uses PKGBUILD from AUR.
 <br>
-See also: https://github.com/manuel-192/antergos-mup
+The latest version can be found at: https://github.com/manuel-192/antergos-mup
