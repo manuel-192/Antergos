@@ -4,7 +4,7 @@ Here you'll find scripts that fix known Antergos installer issues. If you encoun
 
 ## fix-packages-xml
 ### Description
-Fixes problems with missing packages
+Fixes problems with certain missing packages
 ## Usage
 - Start the Antergos installer from the USB stick (or ISO on the virtual machine).
 - When cnchi (the installer program) window starts, close the cnchi window.
