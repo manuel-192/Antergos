@@ -8,7 +8,7 @@ Fixes problems with certain missing packages
 #### Usage
 - Start the Antergos installer from the USB stick (or ISO on the virtual machine).
 - When cnchi (the installer program) window starts, close the cnchi window.
-- Start a terminal program and give the following commands that will also restart the cnchi installer:
+- Start a terminal program and give the following commands that will eventually restart the cnchi installer:
 <pre>
 wget -q -O fix-packages-xml https://github.com/manuel-192/Antergos/raw/master/antergos-installer-fixes/fix-packages-xml
 sudo bash fix-packages-xml
